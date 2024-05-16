@@ -1,6 +1,7 @@
 package dev.splitwolf.thisorethat;
 
 import com.mojang.logging.LogUtils;
+import dev.splitwolf.thisorethat.item.*;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -25,7 +26,18 @@ public class ThisOreThat {
 
     public ThisOreThat() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
-        // Register the commonSetup method for modloading
+
+        CreativeModeTabs.register(modEventBus);
+
+        IngotItems.register(modEventBus);
+
+        MetalBlocks.register(modEventBus);
+
+        OreBlocks.register(modEventBus);
+
+        RawOreItems.register(modEventBus);
+
+        // Register the commonSetup method for mod loading
         modEventBus.addListener(this::commonSetup);
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
