@@ -21,6 +21,7 @@ public class CreativeModeTabs {
                     .displayItems((pParameters, pOutput) -> {
                         IngotItems.ITEMS.getEntries().forEach(item -> pOutput.accept(item.get()));
                         MetalBlocks.BLOCK_ITEMS.getEntries().forEach(item -> pOutput.accept(item.get()));
+                        NuggetItems.ITEMS.getEntries().forEach(item -> pOutput.accept(item.get()));
                         OreBlocks.BLOCK_ITEMS.getEntries().forEach(item -> pOutput.accept(item.get()));
                         RawOreItems.ITEMS.getEntries().forEach(item -> pOutput.accept(item.get()));
                     })

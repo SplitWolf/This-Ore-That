@@ -37,6 +37,8 @@ public class ThisOreThat {
 
         RawOreItems.register(modEventBus);
 
+        NuggetItems.register(modEventBus);
+
         // Register the commonSetup method for mod loading
         modEventBus.addListener(this::commonSetup);
         // Register ourselves for server and other game events we are interested in

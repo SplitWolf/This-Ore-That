@@ -1,10 +1,7 @@
 package dev.splitwolf.thisorethat.datagen;
 
 import dev.splitwolf.thisorethat.ThisOreThat;
-import dev.splitwolf.thisorethat.item.MetalBlocks;
-import dev.splitwolf.thisorethat.item.IngotItems;
-import dev.splitwolf.thisorethat.item.OreBlocks;
-import dev.splitwolf.thisorethat.item.RawOreItems;
+import dev.splitwolf.thisorethat.item.*;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
@@ -28,13 +25,22 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
     protected void buildRecipes(Consumer<FinishedRecipe> pWriter) {
         registerMetalBlockRecipes(pWriter);
         registerSmeltingRecipes(pWriter);
+        registerNuggetRecipes(pWriter);
     }
 
     private void registerMetalBlockRecipes(Consumer<FinishedRecipe> pWriter) {
         MetalBlocks.BLOCKS.getEntries().forEach(block -> {
             String materialType = block.getId().getPath().replace("_block","");
             RegistryObject<Item> unpackedItem = IngotItems.ITEMS.getEntries().stream().filter(item -> item.getId().getPath().contains(materialType)).findFirst().get();
-            ninePackingUnpackingRecipes(RecipeCategory.BUILDING_BLOCKS, block.get(), RecipeCategory.BUILDING_BLOCKS,unpackedItem.get(), pWriter);
+            ninePackingUnpackingRecipes(RecipeCategory.BUILDING_BLOCKS, block.get(),"from/ingot/", RecipeCategory.BUILDING_BLOCKS,unpackedItem.get(),"from/block/", pWriter);
+        });
+    }
+
+    private void registerNuggetRecipes(Consumer<FinishedRecipe> pWriter) {
+        NuggetItems.ITEMS.getEntries().forEach(nugget -> {
+            String materialType = nugget.getId().getPath().replace("_nugget","");
+            RegistryObject<Item> packedItem = IngotItems.ITEMS.getEntries().stream().filter(item -> item.getId().getPath().contains(materialType)).findFirst().get();
+            ninePackingUnpackingRecipes(RecipeCategory.BUILDING_BLOCKS, packedItem.get(), "from/nugget/", RecipeCategory.BUILDING_BLOCKS,nugget.get(),"from/ingot/", pWriter);
         });
     }
 
@@ -82,17 +88,18 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
     }
 
 
-    private void ninePackingUnpackingRecipes(RecipeCategory packedCategory, ItemLike packedItem, RecipeCategory unpackedCategory, ItemLike unpackedItem, Consumer<FinishedRecipe> consumer) {
+    private void ninePackingUnpackingRecipes(RecipeCategory packedCategory, ItemLike packedItem, String packedPath, RecipeCategory unpackedCategory, ItemLike unpackedItem, String unpackedPath, Consumer<FinishedRecipe> consumer) {
+        //TODO: Make path dynamic so that this can be used for nuggets to ingots
         ShapedRecipeBuilder.shaped(packedCategory, packedItem)
                 .pattern("SSS")
                 .pattern("SSS")
                 .pattern("SSS")
                 .define('S', unpackedItem)
                 .unlockedBy(getHasName(unpackedItem), has(unpackedItem))
-                .save(consumer, new ResourceLocation(ThisOreThat.MOD_ID, "from/ingot/" + getItemName(packedItem)));
+                .save(consumer, new ResourceLocation(ThisOreThat.MOD_ID, packedPath+ getItemName(packedItem)));
         ShapelessRecipeBuilder.shapeless(unpackedCategory, unpackedItem, 9)
                 .requires(packedItem)
                 .unlockedBy(getHasName(packedItem),has(packedItem))
-                .save(consumer,new ResourceLocation(ThisOreThat.MOD_ID, "from/block/" + getItemName(unpackedItem)));
+                .save(consumer,new ResourceLocation(ThisOreThat.MOD_ID, unpackedPath + getItemName(unpackedItem)));
     }
 }
