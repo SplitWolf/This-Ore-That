@@ -30,6 +30,10 @@ public class OreBlocks {
 
     public static final RegistryObject<Block> DEEPSLATE_PLATINUM_ORE = addOre("deepslate_platinum_ore");
 
+    public static final RegistryObject<Block> SILVER_ORE = addOre("silver_ore");
+
+    public static final RegistryObject<Block> DEEPSLATE_SILVER_ORE = addOre("deepslate_silver_ore");
+
     public static final RegistryObject<Block> TIN_ORE = addOre("tin_ore");
 
     //TODO: Deepslate Tin & Zinc Probably doesn't make sense

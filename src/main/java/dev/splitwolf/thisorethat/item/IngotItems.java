@@ -22,7 +22,7 @@ public class IngotItems {
     public static final RegistryObject<Item> LEAD_INGOT = registerItem("lead_ingot");
 //    public static final RegistryObject<Item> NICKEL_INGOT = registerItem("nickel_ingot");
     public static final RegistryObject<Item> PLATINUM_INGOT = registerItem("platinum_ingot");
-//    public static final RegistryObject<Item> SILVER_INGOT = registerItem("silver_ingot");
+    public static final RegistryObject<Item> SILVER_INGOT = registerItem("silver_ingot");
     //ALLOY
     public static final RegistryObject<Item> STEEL_INGOT = registerItem("steel_ingot");
     //ELEMENT

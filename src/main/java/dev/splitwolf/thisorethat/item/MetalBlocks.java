@@ -23,6 +23,7 @@ public class MetalBlocks {
     public static final RegistryObject<Block> BRONZE_BLOCK = addMetalBlock("bronze_block");
     public static final RegistryObject<Block> LEAD_BLOCK = addMetalBlock("lead_block");
     public static final RegistryObject<Block> PLATINUM_BLOCK = addMetalBlock("platinum_block");
+    public static final RegistryObject<Block> SILVER_BLOCK = addMetalBlock("silver_block");
     public static final RegistryObject<Block> STEEL_BLOCK = addMetalBlock("steel_block");
     public static final RegistryObject<Block> ZINC_BLOCK = addMetalBlock("zinc_block");
 
