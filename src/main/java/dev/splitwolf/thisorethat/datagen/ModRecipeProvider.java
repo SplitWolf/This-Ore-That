@@ -49,7 +49,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         //TODO: blasting
         OreBlocks.BLOCK_ITEMS.getEntries().forEach(item -> {
             //TODO: Remove if
-            if(item.getId().getPath().matches(".*(nickel|tin_).*")) {
+            if(item.getId().getPath().matches(".*(nickel).*")) {
                 return;
             }
             String materialType = item.getId().getPath().replace("_ore","").replace("deepslate_","");
@@ -62,7 +62,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
         RawOreItems.ITEMS.getEntries().forEach(item -> {
             //TODO: Remove if
-            if(item.getId().getPath().matches(".*(nickel|tin_).*")) {
+            if(item.getId().getPath().matches(".*(nickel).*")) {
                 return;
             }
             String materialType = item.getId().getPath().replace("raw_","");
@@ -90,14 +90,13 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
 
     private void ninePackingUnpackingRecipes(RecipeCategory packedCategory, ItemLike packedItem, String packedPath, RecipeCategory unpackedCategory, ItemLike unpackedItem, String unpackedPath, Consumer<FinishedRecipe> consumer) {
-        //TODO: Make path dynamic so that this can be used for nuggets to ingots
         ShapedRecipeBuilder.shaped(packedCategory, packedItem)
                 .pattern("SSS")
                 .pattern("SSS")
                 .pattern("SSS")
                 .define('S', unpackedItem)
                 .unlockedBy(getHasName(unpackedItem), has(unpackedItem))
-                .save(consumer, new ResourceLocation(ThisOreThat.MOD_ID, packedPath+ getItemName(packedItem)));
+                .save(consumer, new ResourceLocation(ThisOreThat.MOD_ID, packedPath + getItemName(packedItem)));
         ShapelessRecipeBuilder.shapeless(unpackedCategory, unpackedItem, 9)
                 .requires(packedItem)
                 .unlockedBy(getHasName(packedItem),has(packedItem))
