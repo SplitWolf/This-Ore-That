@@ -36,6 +36,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         oreDrop(OreBlocks.TIN_ORE,OreBlocks.DEEPSLATE_TIN_ORE,RawOreItems.RAW_TIN);
         oreDrop(OreBlocks.ZINC_ORE,OreBlocks.DEEPSLATE_ZINC_ORE,RawOreItems.RAW_ZINC);
         oreDrop(OreBlocks.SILVER_ORE,OreBlocks.DEEPSLATE_SILVER_ORE,RawOreItems.RAW_SILVER);
+        oreDrop(OreBlocks.URANIUM_ORE,OreBlocks.DEEPSLATE_URANIUM_ORE,RawOreItems.RAW_URANIUM);
     }
 
     private void oreDrop(RegistryObject<Block> ore, @Nullable RegistryObject<Block> deepslate_ore, RegistryObject<Item> drop) {

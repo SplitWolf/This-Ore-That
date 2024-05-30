@@ -21,6 +21,7 @@ public class RawOreItems {
     public static final RegistryObject<Item> RAW_PLATINUM = registerItem("raw_platinum");
     public static final RegistryObject<Item> RAW_SILVER = registerItem("raw_silver");
     public static final RegistryObject<Item> RAW_TIN = registerItem("raw_tin");
+    public static final RegistryObject<Item> RAW_URANIUM = registerItem("raw_uranium");
     public static final RegistryObject<Item> RAW_ZINC = registerItem("raw_zinc");
 
     public static void register(IEventBus eventBus) {

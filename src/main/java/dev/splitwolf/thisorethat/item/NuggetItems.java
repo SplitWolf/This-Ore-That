@@ -13,6 +13,10 @@ public class NuggetItems {
 
     public static final RegistryObject<Item> lead_nugget = registerItem("lead_nugget");
     public static final RegistryObject<Item> silver_nugget = registerItem("silver_nugget");
+    public static final RegistryObject<Item> tin_nugget = registerItem("tin_nugget");
+    public static final RegistryObject<Item> uranium_nugget = registerItem("uranium_nugget");
+    public static final RegistryObject<Item> zinc_nugget = registerItem("zinc_nugget");
+
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
