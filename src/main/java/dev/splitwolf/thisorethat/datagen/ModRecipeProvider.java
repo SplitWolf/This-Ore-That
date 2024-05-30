@@ -31,7 +31,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
     private void registerMetalBlockRecipes(Consumer<FinishedRecipe> pWriter) {
         MetalBlocks.BLOCKS.getEntries().forEach(block -> {
             String materialType = block.getId().getPath().replace("_block","");
-            RegistryObject<Item> unpackedItem = IngotItems.ITEMS.getEntries().stream().filter(item -> item.getId().getPath().contains(materialType)).findFirst().get();
+            //TODO: Fix warning
+            RegistryObject<Item> unpackedItem = IngotItems.ITEMS.getEntries().stream().filter(item -> item.getId().getPath().startsWith(materialType)).findFirst().get();
             ninePackingUnpackingRecipes(RecipeCategory.BUILDING_BLOCKS, block.get(),"from/ingot/", RecipeCategory.BUILDING_BLOCKS,unpackedItem.get(),"from/block/", pWriter);
         });
     }
@@ -39,7 +40,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
     private void registerNuggetRecipes(Consumer<FinishedRecipe> pWriter) {
         NuggetItems.ITEMS.getEntries().forEach(nugget -> {
             String materialType = nugget.getId().getPath().replace("_nugget","");
-            RegistryObject<Item> packedItem = IngotItems.ITEMS.getEntries().stream().filter(item -> item.getId().getPath().contains(materialType)).findFirst().get();
+            RegistryObject<Item> packedItem = IngotItems.ITEMS.getEntries().stream().filter(item -> item.getId().getPath().startsWith(materialType)).findFirst().get();
             ninePackingUnpackingRecipes(RecipeCategory.BUILDING_BLOCKS, packedItem.get(), "from/nugget/", RecipeCategory.BUILDING_BLOCKS,nugget.get(),"from/ingot/", pWriter);
         });
     }
@@ -52,7 +53,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 return;
             }
             String materialType = item.getId().getPath().replace("_ore","").replace("deepslate_","");
-            RegistryObject<Item> ingotItem = IngotItems.ITEMS.getEntries().stream().filter(ingItem -> ingItem.getId().getPath().contains(materialType+"_")).findFirst().get();
+            RegistryObject<Item> ingotItem = IngotItems.ITEMS.getEntries().stream().filter(ingItem -> ingItem.getId().getPath().startsWith(materialType+"_")).findFirst().get();
 
             //TODO: Make recipes disablable.
             //TODO: Update Time and Exp
@@ -65,7 +66,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 return;
             }
             String materialType = item.getId().getPath().replace("raw_","");
-            RegistryObject<Item> ingotItem = IngotItems.ITEMS.getEntries().stream().filter(ingItem -> ingItem.getId().getPath().contains(materialType)).findFirst().get();
+            RegistryObject<Item> ingotItem = IngotItems.ITEMS.getEntries().stream().filter(ingItem -> ingItem.getId().getPath().startsWith(materialType)).findFirst().get();
             oreCook(pWriter, RecipeSerializer.SMELTING_RECIPE, List.of(item.get()), RecipeCategory.BUILDING_BLOCKS,ingotItem.get(), 0.35f,200, "smelting");
         });
 
