@@ -1,4 +1,4 @@
-package dev.splitwolf.thisorethat.item;
+package dev.splitwolf.thisorethat.block;
 
 import dev.splitwolf.thisorethat.ThisOreThat;
 import net.minecraft.world.item.BlockItem;
@@ -16,6 +16,7 @@ import java.util.function.Supplier;
 public class MetalBlocks {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, ThisOreThat.MOD_ID);
 
+    //TODO: Add storage blocks tags
     //TODO: Make all block mining levels stone/iron , the ones list below are for the ore
     public static final DeferredRegister<Item> BLOCK_ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, ThisOreThat.MOD_ID);
     // Mining Level: Iron

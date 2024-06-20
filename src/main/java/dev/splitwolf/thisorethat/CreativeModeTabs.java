@@ -1,6 +1,11 @@
-package dev.splitwolf.thisorethat.item;
+package dev.splitwolf.thisorethat;
 
-import dev.splitwolf.thisorethat.ThisOreThat;
+import dev.splitwolf.thisorethat.block.MetalBlocks;
+import dev.splitwolf.thisorethat.block.OreBlocks;
+import dev.splitwolf.thisorethat.block.RawOreBlocks;
+import dev.splitwolf.thisorethat.item.IngotItems;
+import dev.splitwolf.thisorethat.item.NuggetItems;
+import dev.splitwolf.thisorethat.item.RawOreItems;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;

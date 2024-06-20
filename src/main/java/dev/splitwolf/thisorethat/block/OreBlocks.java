@@ -1,4 +1,4 @@
-package dev.splitwolf.thisorethat.item;
+package dev.splitwolf.thisorethat.block;
 
 import dev.splitwolf.thisorethat.ThisOreThat;
 import net.minecraft.world.item.BlockItem;

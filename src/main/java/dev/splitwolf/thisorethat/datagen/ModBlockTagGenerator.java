@@ -1,8 +1,8 @@
 package dev.splitwolf.thisorethat.datagen;
 
 import dev.splitwolf.thisorethat.ThisOreThat;
-import dev.splitwolf.thisorethat.item.MetalBlocks;
-import dev.splitwolf.thisorethat.item.OreBlocks;
+import dev.splitwolf.thisorethat.block.MetalBlocks;
+import dev.splitwolf.thisorethat.block.OreBlocks;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
