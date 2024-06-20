@@ -36,6 +36,7 @@ public class ThisOreThat {
 
         RawOreItems.register(modEventBus);
 
+        NuggetItems.register(modEventBus);
         MetalBlocks.register(modEventBus);
 
         OreBlocks.register(modEventBus);
