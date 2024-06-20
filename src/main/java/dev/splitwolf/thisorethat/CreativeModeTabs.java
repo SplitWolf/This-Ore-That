@@ -29,6 +29,7 @@ public class CreativeModeTabs {
                         NuggetItems.ITEMS.getEntries().forEach(item -> pOutput.accept(item.get()));
                         OreBlocks.BLOCK_ITEMS.getEntries().forEach(item -> pOutput.accept(item.get()));
                         RawOreItems.ITEMS.getEntries().forEach(item -> pOutput.accept(item.get()));
+                        RawOreBlocks.BLOCK_ITEMS.getEntries().forEach(item -> pOutput.accept(item.get()));
                     })
                     .build());
 

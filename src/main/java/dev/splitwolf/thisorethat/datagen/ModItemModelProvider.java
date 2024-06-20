@@ -28,6 +28,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         RawOreItems.ITEMS.getEntries().forEach(this::rawOreItem);
         MetalBlocks.BLOCK_ITEMS.getEntries().forEach(this::blockItem);
         OreBlocks.BLOCK_ITEMS.getEntries().forEach(this::blockItem);
+        RawOreBlocks.BLOCK_ITEMS.getEntries().forEach(this::blockItem);
         NuggetItems.ITEMS.getEntries().forEach(this::nuggetItem);
     }
 

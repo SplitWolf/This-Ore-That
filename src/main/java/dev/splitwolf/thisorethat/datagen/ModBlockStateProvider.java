@@ -24,6 +24,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
         MetalBlocks.BLOCKS.getEntries().forEach(this::metalBlockState);
 
         OreBlocks.BLOCKS.getEntries().forEach(this::oreBlockState);
+
+        RawOreBlocks.BLOCKS.getEntries().forEach(this::rawOreBlockState);
     }
 
     private void metalBlockState(RegistryObject<Block> block) {
@@ -31,6 +33,10 @@ public class ModBlockStateProvider extends BlockStateProvider {
     }
     private void oreBlockState(RegistryObject<Block> block) {
         blockWithItemAndTexture(block, OreTexture(block.get()));
+    }
+
+    private void rawOreBlockState(RegistryObject<Block> block) {
+        blockWithItemAndTexture(block, RawOreBlockTexture(block.get()));
     }
 
 
@@ -42,6 +48,11 @@ public class ModBlockStateProvider extends BlockStateProvider {
     private ResourceLocation OreTexture(Block block) {
         ResourceLocation name = key(block);
         return new ResourceLocation(name.getNamespace(), ModelProvider.BLOCK_FOLDER + "/ore/" + name.getPath());
+    }
+
+    private ResourceLocation RawOreBlockTexture(Block block) {
+        ResourceLocation name = key(block);
+        return new ResourceLocation(name.getNamespace(), ModelProvider.BLOCK_FOLDER + "/raw_ore_block/" + name.getPath());
     }
 
     private void blockWithItemAndTexture(RegistryObject<Block> blockRegistryObject, ResourceLocation texture) {

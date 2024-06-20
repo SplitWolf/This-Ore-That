@@ -1,6 +1,9 @@
 package dev.splitwolf.thisorethat;
 
 import com.mojang.logging.LogUtils;
+import dev.splitwolf.thisorethat.block.MetalBlocks;
+import dev.splitwolf.thisorethat.block.OreBlocks;
+import dev.splitwolf.thisorethat.block.RawOreBlocks;
 import dev.splitwolf.thisorethat.item.*;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -31,13 +34,14 @@ public class ThisOreThat {
 
         IngotItems.register(modEventBus);
 
+        RawOreItems.register(modEventBus);
+
         MetalBlocks.register(modEventBus);
 
         OreBlocks.register(modEventBus);
 
-        RawOreItems.register(modEventBus);
+        RawOreBlocks.register(modEventBus);
 
-        NuggetItems.register(modEventBus);
 
         // Register the commonSetup method for mod loading
         modEventBus.addListener(this::commonSetup);
