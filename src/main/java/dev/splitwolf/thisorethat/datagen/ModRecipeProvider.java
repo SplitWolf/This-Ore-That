@@ -59,6 +59,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 return;
             Optional<RegistryObject<Item>> optIngotItem = IngotItems.ITEMS.getEntries().stream().filter(ingItem -> ingItem.getId().getPath().startsWith(materialType+"_")).findFirst();
             //TODO: Update Time and Exp
+            //TODO: Fix naming
             optIngotItem.ifPresent(itemRegistryObject -> oreCook(pWriter, RecipeSerializer.SMELTING_RECIPE, List.of(item.get()), RecipeCategory.BUILDING_BLOCKS, itemRegistryObject.get(), 0.35f, 200, "smelting"));
         });
 
@@ -66,8 +67,9 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
             String materialType = item.getId().getPath().replace("raw_","");
             if(materialType.equals("salt") || materialType.equals("sulfur"))
                 return;
-            RegistryObject<Item> ingotItem = IngotItems.ITEMS.getEntries().stream().filter(ingItem -> ingItem.getId().getPath().startsWith(materialType)).findFirst().get();
-            oreCook(pWriter, RecipeSerializer.SMELTING_RECIPE, List.of(item.get()), RecipeCategory.BUILDING_BLOCKS,ingotItem.get(), 0.35f,200, "smelting");
+            Optional<RegistryObject<Item>> optIngotItem = IngotItems.ITEMS.getEntries().stream().filter(ingItem -> ingItem.getId().getPath().startsWith(materialType)).findFirst();
+            //TODO: Fix naming
+            optIngotItem.ifPresent(itemRegistryObject -> oreCook(pWriter, RecipeSerializer.SMELTING_RECIPE, List.of(item.get()), RecipeCategory.BUILDING_BLOCKS, itemRegistryObject.get(), 0.35f, 200, "smelting"));
         });
 
     }
@@ -106,7 +108,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         }
     }
 
-
+    @SuppressWarnings("SameParameterValue")
     private void ninePackingUnpackingRecipes(RecipeCategory packedCategory, ItemLike packedItem, String packedPath, RecipeCategory unpackedCategory, ItemLike unpackedItem, String unpackedPath, Consumer<FinishedRecipe> consumer) {
         ShapedRecipeBuilder.shaped(packedCategory, packedItem)
                 .pattern("SSS")

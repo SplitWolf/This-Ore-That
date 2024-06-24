@@ -35,10 +35,12 @@ public class ModItemModelProvider extends ItemModelProvider {
         RawOreBlocks.BLOCK_ITEMS.getEntries().forEach(this::blockItem);
     }
 
+    @SuppressWarnings("UnusedReturnValue")
     private ItemModelBuilder blockItem(RegistryObject<Item> item) {
         return withExistingParent(item.getId().getPath(),new ResourceLocation(ThisOreThat.MOD_ID, "block/" + item.getId().getPath()));
     }
 
+    @SuppressWarnings("UnusedReturnValue")
     private ItemModelBuilder ingotItem(RegistryObject<Item> item) {
         return withExistingParent(item.getId().getPath(),
                 new ResourceLocation("item/generated"))
@@ -46,6 +48,7 @@ public class ModItemModelProvider extends ItemModelProvider {
                 new ResourceLocation(ThisOreThat.MOD_ID, "item/ingot/" + item.getId().getPath()));
     }
 
+    @SuppressWarnings("UnusedReturnValue")
     private ItemModelBuilder dustItem(RegistryObject<Item> item) {
         return withExistingParent(item.getId().getPath(),
                 new ResourceLocation("item/generated"))
@@ -53,6 +56,7 @@ public class ModItemModelProvider extends ItemModelProvider {
                         new ResourceLocation(ThisOreThat.MOD_ID, "item/dust/" + item.getId().getPath()));
     }
 
+    @SuppressWarnings("UnusedReturnValue")
     private ItemModelBuilder gearItem(RegistryObject<Item> item) {
         return withExistingParent(item.getId().getPath(),
                 new ResourceLocation("item/generated"))
@@ -60,6 +64,7 @@ public class ModItemModelProvider extends ItemModelProvider {
                         new ResourceLocation(ThisOreThat.MOD_ID, "item/gear/" + item.getId().getPath()));
     }
 
+    @SuppressWarnings("UnusedReturnValue")
     private ItemModelBuilder sheetItem(RegistryObject<Item> item) {
         return withExistingParent(item.getId().getPath(),
                 new ResourceLocation("item/generated"))
@@ -67,6 +72,7 @@ public class ModItemModelProvider extends ItemModelProvider {
                         new ResourceLocation(ThisOreThat.MOD_ID, "item/sheet/" + item.getId().getPath()));
     }
 
+    @SuppressWarnings("UnusedReturnValue")
     private ItemModelBuilder rawOreItem(RegistryObject<Item> item) {
         return withExistingParent(item.getId().getPath(),
                 new ResourceLocation("item/generated"))
@@ -74,6 +80,7 @@ public class ModItemModelProvider extends ItemModelProvider {
                         new ResourceLocation(ThisOreThat.MOD_ID, "item/raw_ore/" + item.getId().getPath()));
     }
 
+    @SuppressWarnings("UnusedReturnValue")
     private ItemModelBuilder nuggetItem(RegistryObject<Item> item) {
         return withExistingParent(item.getId().getPath(),
                 new ResourceLocation("item/generated"))

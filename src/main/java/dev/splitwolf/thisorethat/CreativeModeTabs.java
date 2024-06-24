@@ -16,7 +16,7 @@ public class CreativeModeTabs {
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS =
             DeferredRegister.create(Registries.CREATIVE_MODE_TAB, ThisOreThat.MOD_ID);
 
-
+    @SuppressWarnings("unused")
     public static final RegistryObject<CreativeModeTab> THIS_ORE_THAT_TAB = CREATIVE_MODE_TABS.register("this_ore_that_tab",
             () -> CreativeModeTab.builder()
                     .icon(() -> new ItemStack(IngotItems.BRASS_INGOT.get()))
