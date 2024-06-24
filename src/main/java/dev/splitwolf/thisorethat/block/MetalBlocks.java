@@ -16,7 +16,6 @@ import java.util.function.Supplier;
 public class MetalBlocks {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, ThisOreThat.MOD_ID);
 
-    //TODO: Add storage blocks tags
     public static final DeferredRegister<Item> BLOCK_ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, ThisOreThat.MOD_ID);
 
     public static final RegistryObject<Block> ALUMINIUM_BLOCK = addMetalBlock("aluminum_block");
