@@ -18,32 +18,35 @@ public class OreBlocks {
 
     public static final DeferredRegister<Item> BLOCK_ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, ThisOreThat.MOD_ID);
 
-    public static final RegistryObject<Block> LEAD_ORE = addOre("lead_ore");
+    public static final RegistryObject<Block> ALUMINIUM_ORE = addOre("aluminum_ore");
+    public static final RegistryObject<Block> DEEPSLATE_ALUMINIUM_ORE = addOre("deepslate_aluminum_ore");
 
+    public static final RegistryObject<Block> LEAD_ORE = addOre("lead_ore");
     public static final RegistryObject<Block> DEEPSLATE_LEAD_ORE = addOre("deepslate_lead_ore");
 
-    public static final RegistryObject<Block> NICKEL_ORE = addOre("nickel_ore");
 
+    public static final RegistryObject<Block> NICKEL_ORE = addOre("nickel_ore");
     public static final RegistryObject<Block> DEEPSLATE_NICKEL_ORE = addOre("deepslate_nickel_ore");
 
     public static final RegistryObject<Block> PLATINUM_ORE = addOre("platinum_ore");
-
     public static final RegistryObject<Block> DEEPSLATE_PLATINUM_ORE = addOre("deepslate_platinum_ore");
 
-    public static final RegistryObject<Block> SILVER_ORE = addOre("silver_ore");
+    public static final RegistryObject<Block> SALT_ORE = addOre("salt_ore");
+    public static final RegistryObject<Block> DEEPSLATE_SALT_ORE = addOre("deepslate_salt_ore");
 
+    public static final RegistryObject<Block> SILVER_ORE = addOre("silver_ore");
     public static final RegistryObject<Block> DEEPSLATE_SILVER_ORE = addOre("deepslate_silver_ore");
 
-    public static final RegistryObject<Block> TIN_ORE = addOre("tin_ore");
+    public static final RegistryObject<Block> SULFUR_ORE = addOre("sulfur_ore");
+    public static final RegistryObject<Block> DEEPSLATE_SULFUR_ORE = addOre("deepslate_sulfur_ore");
 
-    //TODO: Deepslate Tin & Zinc Probably doesn't make sense
+    public static final RegistryObject<Block> TIN_ORE = addOre("tin_ore");
     public static final RegistryObject<Block> DEEPSLATE_TIN_ORE = addOre("deepslate_tin_ore");
 
     public static final RegistryObject<Block> URANIUM_ORE = addOre("uranium_ore");
     public static final RegistryObject<Block> DEEPSLATE_URANIUM_ORE = addOre("deepslate_uranium_ore");
 
     public static final RegistryObject<Block> ZINC_ORE = addOre("zinc_ore");
-
     public static final RegistryObject<Block> DEEPSLATE_ZINC_ORE = addOre("deepslate_zinc_ore");
 
     private static RegistryObject<Block> addOre(String name) {

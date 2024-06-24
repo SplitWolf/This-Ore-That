@@ -2,6 +2,7 @@ package dev.splitwolf.thisorethat.datagen.loot;
 
 import dev.splitwolf.thisorethat.block.MetalBlocks;
 import dev.splitwolf.thisorethat.block.OreBlocks;
+import dev.splitwolf.thisorethat.block.RawOreBlocks;
 import dev.splitwolf.thisorethat.item.RawOreItems;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
@@ -26,13 +27,16 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         MetalBlocks.BLOCKS.getEntries().stream().map(RegistryObject::get).forEach(this::dropSelf);
 
 
+        oreDrop(OreBlocks.ALUMINIUM_ORE,OreBlocks.DEEPSLATE_ALUMINIUM_ORE, RawOreItems.RAW_ALUMINUM);
         oreDrop(OreBlocks.LEAD_ORE,OreBlocks.DEEPSLATE_LEAD_ORE,RawOreItems.RAW_LEAD);
         oreDrop(OreBlocks.NICKEL_ORE,OreBlocks.DEEPSLATE_NICKEL_ORE,RawOreItems.RAW_NICKEL);
         oreDrop(OreBlocks.PLATINUM_ORE,OreBlocks.DEEPSLATE_PLATINUM_ORE,RawOreItems.RAW_PLATINUM);
-        oreDrop(OreBlocks.TIN_ORE,OreBlocks.DEEPSLATE_TIN_ORE,RawOreItems.RAW_TIN);
-        oreDrop(OreBlocks.ZINC_ORE,OreBlocks.DEEPSLATE_ZINC_ORE,RawOreItems.RAW_ZINC);
+        oreDrop(OreBlocks.SALT_ORE,OreBlocks.DEEPSLATE_SALT_ORE,RawOreItems.RAW_SALT);
         oreDrop(OreBlocks.SILVER_ORE,OreBlocks.DEEPSLATE_SILVER_ORE,RawOreItems.RAW_SILVER);
+        oreDrop(OreBlocks.SULFUR_ORE,OreBlocks.DEEPSLATE_SULFUR_ORE,RawOreItems.RAW_SULFUR);
+        oreDrop(OreBlocks.TIN_ORE,OreBlocks.DEEPSLATE_TIN_ORE,RawOreItems.RAW_TIN);
         oreDrop(OreBlocks.URANIUM_ORE,OreBlocks.DEEPSLATE_URANIUM_ORE,RawOreItems.RAW_URANIUM);
+        oreDrop(OreBlocks.ZINC_ORE,OreBlocks.DEEPSLATE_ZINC_ORE,RawOreItems.RAW_ZINC);
     }
 
     private void oreDrop(RegistryObject<Block> ore, @Nullable RegistryObject<Block> deepslate_ore, RegistryObject<Item> drop) {
