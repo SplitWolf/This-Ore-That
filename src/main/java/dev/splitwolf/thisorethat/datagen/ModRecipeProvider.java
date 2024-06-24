@@ -27,7 +27,6 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         registerSmeltingRecipes(pWriter);
         registerNuggetRecipes(pWriter);
     }
-
     private void registerMetalBlockRecipes(Consumer<FinishedRecipe> pWriter) {
         MetalBlocks.BLOCKS.getEntries().forEach(block -> {
             String materialType = block.getId().getPath().replace("_block","");
@@ -48,14 +47,11 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
     private void registerSmeltingRecipes(Consumer<FinishedRecipe> pWriter) {
         //TODO: blasting
         OreBlocks.BLOCK_ITEMS.getEntries().forEach(item -> {
-            //TODO: Remove if
-            if(item.getId().getPath().matches(".*(nickel).*")) {
-                return;
-            }
             String materialType = item.getId().getPath().replace("_ore","").replace("deepslate_","");
+            if(materialType.equals("salt") || materialType.equals("sulfur"))
+                return;
             RegistryObject<Item> ingotItem = IngotItems.ITEMS.getEntries().stream().filter(ingItem -> ingItem.getId().getPath().startsWith(materialType+"_")).findFirst().get();
 
-            //TODO: Make recipes disablable.
             //TODO: Update Time and Exp
             oreCook(pWriter, RecipeSerializer.SMELTING_RECIPE, List.of(item.get()), RecipeCategory.BUILDING_BLOCKS,ingotItem.get(), 0.35f,200, "smelting");
         });
@@ -72,19 +68,37 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
     }
 
+    private static class ReturnRecipe implements Consumer<FinishedRecipe> {
+        FinishedRecipe toReturn;
+
+        @Override
+        public void accept(FinishedRecipe finishedRecipe) {
+            toReturn = finishedRecipe;
+        }
+
+        public FinishedRecipe getLast() {
+            return toReturn;
+        }
+    }
 
     private void oreCook(Consumer<FinishedRecipe> pFinishedRecipeConsumer, RecipeSerializer<? extends AbstractCookingRecipe> pCookingSerializer, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult, float pExperience, int pCookingTime, String pRecipeName) {
+        ReturnRecipe recipeReturner = new ReturnRecipe();
         for(ItemLike itemlike : pIngredients) {
             SimpleCookingRecipeBuilder.generic(
-                    Ingredient.of(itemlike),
-                    pCategory,
-                    pResult,
-                    pExperience,
-                    pCookingTime,
-                    pCookingSerializer
-            )
+                            Ingredient.of(itemlike),
+                            pCategory,
+                            pResult,
+                            pExperience,
+                            pCookingTime,
+                            pCookingSerializer
+                    )
                     .unlockedBy(getHasName(itemlike), has(itemlike))
-                    .save(pFinishedRecipeConsumer, new ResourceLocation(ThisOreThat.MOD_ID, pRecipeName + "/" + getItemName(pResult) + "_from_" + getItemName(itemlike)));
+                    .save(recipeReturner, new ResourceLocation(ThisOreThat.MOD_ID, pRecipeName + "/" + getItemName(pResult) + "_from_" + getItemName(itemlike)));
+
+            ConditionalRecipe.builder().addCondition(SmeltingEnabledCondition.INSTANCE)
+                    .addRecipe(recipeReturner.getLast())
+                    .build(pFinishedRecipeConsumer,recipeReturner.getLast().getId());
+
         }
     }
 
