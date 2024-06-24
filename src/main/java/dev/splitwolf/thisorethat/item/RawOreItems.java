@@ -16,10 +16,13 @@ public class RawOreItems {
             DeferredRegister.create(ForgeRegistries.ITEMS, ThisOreThat.MOD_ID);
 
     //ELEMENT
+    public static final RegistryObject<Item> RAW_ALUMINUM = registerItem("raw_aluminum");
     public static final RegistryObject<Item> RAW_LEAD = registerItem("raw_lead");
     public static final RegistryObject<Item> RAW_NICKEL = registerItem("raw_nickel");
     public static final RegistryObject<Item> RAW_PLATINUM = registerItem("raw_platinum");
+    public static final RegistryObject<Item> RAW_SALT = registerItem("raw_salt");
     public static final RegistryObject<Item> RAW_SILVER = registerItem("raw_silver");
+    public static final RegistryObject<Item> RAW_SULFUR = registerItem("raw_sulfur");
     public static final RegistryObject<Item> RAW_TIN = registerItem("raw_tin");
     public static final RegistryObject<Item> RAW_URANIUM = registerItem("raw_uranium");
     public static final RegistryObject<Item> RAW_ZINC = registerItem("raw_zinc");

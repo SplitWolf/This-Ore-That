@@ -17,25 +17,23 @@ public class MetalBlocks {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, ThisOreThat.MOD_ID);
 
     //TODO: Add storage blocks tags
-    //TODO: Make all block mining levels stone/iron , the ones list below are for the ore
     public static final DeferredRegister<Item> BLOCK_ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, ThisOreThat.MOD_ID);
-    // Mining Level: Iron
+
+    public static final RegistryObject<Block> ALUMINIUM_BLOCK = addMetalBlock("aluminum_block");
     public static final RegistryObject<Block> BRASS_BLOCK = addMetalBlock("brass_block");
-    // Mining Level: Stone
     public static final RegistryObject<Block> BRONZE_BLOCK = addMetalBlock("bronze_block");
-    // Mining Level: Stone
+    public static final RegistryObject<Block> ELECTRUM_BLOCK = addMetalBlock("electrum_block");
+    public static final RegistryObject<Block> INVAR_BLOCK = addMetalBlock("invar_block");
     public static final RegistryObject<Block> LEAD_BLOCK = addMetalBlock("lead_block");
-    // Mining Level: Iron
+    public static final RegistryObject<Block> NICKEL_BLOCK = addMetalBlock("nickel_block");
     public static final RegistryObject<Block> PLATINUM_BLOCK = addMetalBlock("platinum_block");
-    // Mining Level: Stone
+    public static final RegistryObject<Block> SALT_BLOCK = addMetalBlock("salt_block");
+    public static final RegistryObject<Block> SILICON_BLOCK = addMetalBlock("silicon_block");
     public static final RegistryObject<Block> SILVER_BLOCK = addMetalBlock("silver_block");
-    // Mining Level: Iron
     public static final RegistryObject<Block> STEEL_BLOCK = addMetalBlock("steel_block");
-    // Mining Level: Stone
+    public static final RegistryObject<Block> SULFUR_BLOCK = addMetalBlock("sulfur_block");
     public static final RegistryObject<Block> TIN_BLOCK = addMetalBlock("tin_block");
-    // Mining Level: Diamond
     public static final RegistryObject<Block> URANIUM_BLOCK = addMetalBlock("uranium_block");
-    // Mining Level: Stone
     public static final RegistryObject<Block> ZINC_BLOCK = addMetalBlock("zinc_block");
 
 
