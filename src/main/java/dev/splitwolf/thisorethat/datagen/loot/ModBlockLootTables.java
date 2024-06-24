@@ -2,7 +2,6 @@ package dev.splitwolf.thisorethat.datagen.loot;
 
 import dev.splitwolf.thisorethat.block.MetalBlocks;
 import dev.splitwolf.thisorethat.block.OreBlocks;
-import dev.splitwolf.thisorethat.block.RawOreBlocks;
 import dev.splitwolf.thisorethat.item.RawOreItems;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;

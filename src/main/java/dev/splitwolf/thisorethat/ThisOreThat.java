@@ -5,21 +5,15 @@ import dev.splitwolf.thisorethat.block.MetalBlocks;
 import dev.splitwolf.thisorethat.block.OreBlocks;
 import dev.splitwolf.thisorethat.block.RawOreBlocks;
 import dev.splitwolf.thisorethat.item.*;
-import net.minecraft.world.item.crafting.RecipeSerializer;
-import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.crafting.CraftingHelper;
-import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
-import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
-import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegisterEvent;
 import org.slf4j.Logger;
@@ -29,8 +23,6 @@ import org.slf4j.Logger;
 public class ThisOreThat {
     // Define mod id in a common place for everything to reference
     public static final String MOD_ID = "thisorethat";
-    // Directly reference a slf4j logger
-    private static final Logger LOGGER = LogUtils.getLogger();
 
     public ThisOreThat() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
