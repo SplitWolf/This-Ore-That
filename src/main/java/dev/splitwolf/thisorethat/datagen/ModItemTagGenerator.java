@@ -30,6 +30,10 @@ public class ModItemTagGenerator extends ItemTagsProvider {
         DustItems.ITEMS.getEntries().forEach(this::tagDustItems);
         GearItems.ITEMS.getEntries().forEach(this::tagGearItems);
         SheetItems.ITEMS.getEntries().forEach(this::tagSheetItems);
+
+        TagKey<Item> tag = ItemTags.create(new ResourceLocation("forge",
+                "silicon"));
+        this.tag(tag).add(IngotItems.SILICON_INGOT.get());
     }
 
     private void tagIngots(RegistryObject<Item> item) {
