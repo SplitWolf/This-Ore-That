@@ -29,6 +29,9 @@ public class ModItemTagGenerator extends ItemTagsProvider {
         IngotItems.ITEMS.getEntries().forEach(this::tagIngots);
         RawOreItems.ITEMS.getEntries().forEach(this::tagRawMaterials);
         NuggetItems.ITEMS.getEntries().forEach(this::tagNuggets);
+        DustItems.ITEMS.getEntries().forEach(this::tagDustItems);
+        GearItems.ITEMS.getEntries().forEach(this::tagGearItems);
+        SheetItems.ITEMS.getEntries().forEach(this::tagSheetItems);
     }
 
     private void tagIngots(RegistryObject<Item> item) {
