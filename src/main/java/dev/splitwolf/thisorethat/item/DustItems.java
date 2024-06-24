@@ -9,10 +9,10 @@ import net.minecraftforge.registries.RegistryObject;
 
 @SuppressWarnings("unused")
 public class DustItems {
-    public static final RegistryObject<Item> ALUMINUM_DUST = registerItem("aluminum_dust");
     public static final DeferredRegister<Item> ITEMS =
             DeferredRegister.create(ForgeRegistries.ITEMS, ThisOreThat.MOD_ID);
 
+public static final RegistryObject<Item> ALUMINUM_DUST = registerItem("aluminum_dust");
 public static final RegistryObject<Item> BRASS_DUST = registerItem("brass_dust");
 public static final RegistryObject<Item> BRONZE_DUST = registerItem("bronze_dust");
 public static final RegistryObject<Item> COPPER_DUST = registerItem("copper_dust");
@@ -39,7 +39,6 @@ public static final RegistryObject<Item> ZINC_DUST = registerItem("zinc_dust");
     }
 
     public static RegistryObject<Item> registerItem(String itemID) {
-        assert ITEMS != null;
         return ITEMS.register(itemID,
                 () -> new Item(new Item.Properties())
         );
