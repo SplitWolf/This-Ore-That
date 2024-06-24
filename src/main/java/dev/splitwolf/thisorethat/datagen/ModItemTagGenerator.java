@@ -1,9 +1,7 @@
 package dev.splitwolf.thisorethat.datagen;
 
 import dev.splitwolf.thisorethat.ThisOreThat;
-import dev.splitwolf.thisorethat.item.IngotItems;
-import dev.splitwolf.thisorethat.item.NuggetItems;
-import dev.splitwolf.thisorethat.item.RawOreItems;
+import dev.splitwolf.thisorethat.item.*;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
@@ -52,4 +50,23 @@ public class ModItemTagGenerator extends ItemTagsProvider {
                 "raw_materials/" + item.getId().getPath().replace("raw_","")));
         this.tag(tag).add(item.get());
     }
+
+    private void tagDustItems(RegistryObject<Item> item) {
+        TagKey<Item> tag = ItemTags.create(new ResourceLocation("forge",
+                "dusts/" + item.getId().getPath().replace("raw_","")));
+        this.tag(tag).add(item.get());
+    }
+
+    private void tagGearItems(RegistryObject<Item> item) {
+        TagKey<Item> tag = ItemTags.create(new ResourceLocation("forge",
+                "gear/" + item.getId().getPath().replace("raw_","")));
+        this.tag(tag).add(item.get());
+    }
+
+    private void tagSheetItems(RegistryObject<Item> item) {
+        TagKey<Item> tag = ItemTags.create(new ResourceLocation("forge",
+                "plates/" + item.getId().getPath().replace("raw_","")));
+        this.tag(tag).add(item.get());
+    }
+
 }

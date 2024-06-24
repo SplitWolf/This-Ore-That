@@ -26,10 +26,13 @@ public class ModItemModelProvider extends ItemModelProvider {
     private void registerMetalItems() {
         IngotItems.ITEMS.getEntries().forEach(this::ingotItem);
         RawOreItems.ITEMS.getEntries().forEach(this::rawOreItem);
+        NuggetItems.ITEMS.getEntries().forEach(this::nuggetItem);
+        DustItems.ITEMS.getEntries().forEach(this::dustItem);
+        GearItems.ITEMS.getEntries().forEach(this::gearItem);
+        SheetItems.ITEMS.getEntries().forEach(this::sheetItem);
         MetalBlocks.BLOCK_ITEMS.getEntries().forEach(this::blockItem);
         OreBlocks.BLOCK_ITEMS.getEntries().forEach(this::blockItem);
         RawOreBlocks.BLOCK_ITEMS.getEntries().forEach(this::blockItem);
-        NuggetItems.ITEMS.getEntries().forEach(this::nuggetItem);
     }
 
     private ItemModelBuilder blockItem(RegistryObject<Item> item) {
@@ -41,6 +44,27 @@ public class ModItemModelProvider extends ItemModelProvider {
                 new ResourceLocation("item/generated"))
                 .texture("layer0",
                 new ResourceLocation(ThisOreThat.MOD_ID, "item/ingot/" + item.getId().getPath()));
+    }
+
+    private ItemModelBuilder dustItem(RegistryObject<Item> item) {
+        return withExistingParent(item.getId().getPath(),
+                new ResourceLocation("item/generated"))
+                .texture("layer0",
+                        new ResourceLocation(ThisOreThat.MOD_ID, "item/dust/" + item.getId().getPath()));
+    }
+
+    private ItemModelBuilder gearItem(RegistryObject<Item> item) {
+        return withExistingParent(item.getId().getPath(),
+                new ResourceLocation("item/generated"))
+                .texture("layer0",
+                        new ResourceLocation(ThisOreThat.MOD_ID, "item/gear/" + item.getId().getPath()));
+    }
+
+    private ItemModelBuilder sheetItem(RegistryObject<Item> item) {
+        return withExistingParent(item.getId().getPath(),
+                new ResourceLocation("item/generated"))
+                .texture("layer0",
+                        new ResourceLocation(ThisOreThat.MOD_ID, "item/sheet/" + item.getId().getPath()));
     }
 
     private ItemModelBuilder rawOreItem(RegistryObject<Item> item) {
