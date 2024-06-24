@@ -87,6 +87,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         }
     }
 
+    @SuppressWarnings("SameParameterValue")
     private void oreCook(Consumer<FinishedRecipe> pFinishedRecipeConsumer, RecipeSerializer<? extends AbstractCookingRecipe> pCookingSerializer, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult, float pExperience, int pCookingTime, String pRecipeName) {
         ReturnRecipe recipeReturner = new ReturnRecipe();
         for(ItemLike itemlike : pIngredients) {

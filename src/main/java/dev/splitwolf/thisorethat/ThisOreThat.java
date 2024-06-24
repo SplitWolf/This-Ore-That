@@ -1,6 +1,5 @@
 package dev.splitwolf.thisorethat;
 
-import com.mojang.logging.LogUtils;
 import dev.splitwolf.thisorethat.block.MetalBlocks;
 import dev.splitwolf.thisorethat.block.OreBlocks;
 import dev.splitwolf.thisorethat.block.RawOreBlocks;
@@ -16,7 +15,6 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegisterEvent;
-import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(ThisOreThat.MOD_ID)
