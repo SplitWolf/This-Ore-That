@@ -1,5 +1,8 @@
 package dev.splitwolf.thisorethat.datagen;
 
+import dev.splitwolf.thisorethat.SmeltingEnabledCondition;
+import dev.splitwolf.thisorethat.block.MetalBlocks;
+import dev.splitwolf.thisorethat.block.OreBlocks;
 import dev.splitwolf.thisorethat.ThisOreThat;
 import dev.splitwolf.thisorethat.item.*;
 import net.minecraft.data.PackOutput;
@@ -10,10 +13,13 @@ import net.minecraft.world.item.crafting.AbstractCookingRecipe;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.ItemLike;
+import net.minecraftforge.common.crafting.ConditionalRecipe;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 import net.minecraftforge.registries.RegistryObject;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.function.Consumer;
 
 public class ModRecipeProvider extends RecipeProvider implements IConditionBuilder {
@@ -22,7 +28,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
     }
 
     @Override
-    protected void buildRecipes(Consumer<FinishedRecipe> pWriter) {
+    protected void buildRecipes(@NotNull Consumer<FinishedRecipe> pWriter) {
         registerMetalBlockRecipes(pWriter);
         registerSmeltingRecipes(pWriter);
         registerNuggetRecipes(pWriter);
@@ -30,17 +36,18 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
     private void registerMetalBlockRecipes(Consumer<FinishedRecipe> pWriter) {
         MetalBlocks.BLOCKS.getEntries().forEach(block -> {
             String materialType = block.getId().getPath().replace("_block","");
-            //TODO: Fix warning
-            RegistryObject<Item> unpackedItem = IngotItems.ITEMS.getEntries().stream().filter(item -> item.getId().getPath().startsWith(materialType)).findFirst().get();
-            ninePackingUnpackingRecipes(RecipeCategory.BUILDING_BLOCKS, block.get(),"from/ingot/", RecipeCategory.BUILDING_BLOCKS,unpackedItem.get(),"from/block/", pWriter);
+            Optional<RegistryObject<Item>> optUnpackedItem = IngotItems.ITEMS.getEntries().stream().filter(item -> item.getId().getPath().startsWith(materialType)).findFirst();
+            optUnpackedItem.ifPresent(unpackedItem ->
+                    ninePackingUnpackingRecipes(RecipeCategory.BUILDING_BLOCKS, block.get(), "from/ingot/", RecipeCategory.BUILDING_BLOCKS, unpackedItem.get(), "from/block/", pWriter));
         });
     }
 
     private void registerNuggetRecipes(Consumer<FinishedRecipe> pWriter) {
         NuggetItems.ITEMS.getEntries().forEach(nugget -> {
             String materialType = nugget.getId().getPath().replace("_nugget","");
-            RegistryObject<Item> packedItem = IngotItems.ITEMS.getEntries().stream().filter(item -> item.getId().getPath().startsWith(materialType)).findFirst().get();
-            ninePackingUnpackingRecipes(RecipeCategory.BUILDING_BLOCKS, packedItem.get(), "from/nugget/", RecipeCategory.BUILDING_BLOCKS,nugget.get(),"from/ingot/", pWriter);
+            Optional<RegistryObject<Item>> optPackedItem = IngotItems.ITEMS.getEntries().stream().filter(item -> item.getId().getPath().startsWith(materialType)).findFirst();
+            optPackedItem.ifPresent(packedItem ->
+                    ninePackingUnpackingRecipes(RecipeCategory.BUILDING_BLOCKS, packedItem.get(), "from/nugget/", RecipeCategory.BUILDING_BLOCKS,nugget.get(),"from/ingot/", pWriter));
         });
     }
 
@@ -50,18 +57,15 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
             String materialType = item.getId().getPath().replace("_ore","").replace("deepslate_","");
             if(materialType.equals("salt") || materialType.equals("sulfur"))
                 return;
-            RegistryObject<Item> ingotItem = IngotItems.ITEMS.getEntries().stream().filter(ingItem -> ingItem.getId().getPath().startsWith(materialType+"_")).findFirst().get();
-
+            Optional<RegistryObject<Item>> optIngotItem = IngotItems.ITEMS.getEntries().stream().filter(ingItem -> ingItem.getId().getPath().startsWith(materialType+"_")).findFirst();
             //TODO: Update Time and Exp
-            oreCook(pWriter, RecipeSerializer.SMELTING_RECIPE, List.of(item.get()), RecipeCategory.BUILDING_BLOCKS,ingotItem.get(), 0.35f,200, "smelting");
+            optIngotItem.ifPresent(itemRegistryObject -> oreCook(pWriter, RecipeSerializer.SMELTING_RECIPE, List.of(item.get()), RecipeCategory.BUILDING_BLOCKS, itemRegistryObject.get(), 0.35f, 200, "smelting"));
         });
 
         RawOreItems.ITEMS.getEntries().forEach(item -> {
-            //TODO: Remove if
-            if(item.getId().getPath().matches(".*(nickel).*")) {
-                return;
-            }
             String materialType = item.getId().getPath().replace("raw_","");
+            if(materialType.equals("salt") || materialType.equals("sulfur"))
+                return;
             RegistryObject<Item> ingotItem = IngotItems.ITEMS.getEntries().stream().filter(ingItem -> ingItem.getId().getPath().startsWith(materialType)).findFirst().get();
             oreCook(pWriter, RecipeSerializer.SMELTING_RECIPE, List.of(item.get()), RecipeCategory.BUILDING_BLOCKS,ingotItem.get(), 0.35f,200, "smelting");
         });
