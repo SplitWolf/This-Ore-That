@@ -12,7 +12,7 @@ public class ThisOreThatConfig
 
     public static final ForgeConfigSpec.BooleanValue enableSmeltingRecipes = BUILDER
             .comment("Whether to add the smelting recipes for the ores or not")
-            .define("enableSmeltingRecipes", true);
+            .define("enableSmeltingRecipes", false);
 
     static final ForgeConfigSpec SPEC = BUILDER.build();
 }
