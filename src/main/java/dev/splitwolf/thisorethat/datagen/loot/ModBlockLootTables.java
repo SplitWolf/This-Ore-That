@@ -2,6 +2,7 @@ package dev.splitwolf.thisorethat.datagen.loot;
 
 import dev.splitwolf.thisorethat.block.MetalBlocks;
 import dev.splitwolf.thisorethat.block.OreBlocks;
+import dev.splitwolf.thisorethat.block.RawOreBlocks;
 import dev.splitwolf.thisorethat.item.RawOreItems;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
@@ -24,6 +25,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
     @Override
     protected void generate() {
         MetalBlocks.BLOCKS.getEntries().stream().map(RegistryObject::get).forEach(this::dropSelf);
+        RawOreBlocks.BLOCKS.getEntries().stream().map(RegistryObject::get).forEach(this::dropSelf);
 
 
         oreDrop(OreBlocks.ALUMINIUM_ORE,OreBlocks.DEEPSLATE_ALUMINIUM_ORE, RawOreItems.RAW_ALUMINUM);
@@ -59,6 +61,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         Collection<RegistryObject<Block>> blockList = new ArrayList<>();
         blockList.addAll(MetalBlocks.BLOCKS.getEntries());
         blockList.addAll(OreBlocks.BLOCKS.getEntries());
+        blockList.addAll(RawOreBlocks.BLOCKS.getEntries());
         return blockList.stream().map(RegistryObject::get)::iterator;
     }
 }
