@@ -25,12 +25,12 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.@NotNull Provider pProvider) {
-        //TODO: Fix mining level
         setMiningLevels();
 
-        //TODO: Are all blocks mineable with pick?
         OreBlocks.BLOCKS.getEntries().forEach(this::addMineableWithPick);
         MetalBlocks.BLOCKS.getEntries().forEach(this::addMineableWithPick);
+        RawOreBlocks.BLOCKS.getEntries().forEach(this::addMineableWithPick);
+
         MetalBlocks.BLOCKS.getEntries().forEach(this::tagMetalBlocks);
         OreBlocks.BLOCKS.getEntries().forEach(this::tagOres);
         RawOreBlocks.BLOCKS.getEntries().forEach(this::tagRawOreBlocks);
