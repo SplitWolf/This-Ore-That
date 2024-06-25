@@ -5,7 +5,9 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -50,7 +52,10 @@ public class OreBlocks {
     public static final RegistryObject<Block> DEEPSLATE_ZINC_ORE = addOre("deepslate_zinc_ore");
 
     private static RegistryObject<Block> addOre(String name) {
-        return registerBlock(name,() -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
+        if(name.contains("deepslate")) {
+            return registerBlock(name,() -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_ORE)));
+        }
+        return registerBlock(name,() -> new Block(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE_IRON_ORE)));
     }
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {

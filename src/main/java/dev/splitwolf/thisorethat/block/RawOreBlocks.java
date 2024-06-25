@@ -31,7 +31,7 @@ public class RawOreBlocks {
     public static final RegistryObject<Block> RAW_ZINC_BLOCK = addRawOreBlock("raw_zinc_block");
 
     private static RegistryObject<Block> addRawOreBlock(String name) {
-        return registerBlock(name,() -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
+        return registerBlock(name,() -> new Block(BlockBehaviour.Properties.copy(Blocks.RAW_IRON_BLOCK)));
     }
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
