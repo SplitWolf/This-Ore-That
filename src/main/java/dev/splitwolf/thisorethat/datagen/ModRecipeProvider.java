@@ -59,8 +59,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 return;
             Optional<RegistryObject<Item>> optIngotItem = IngotItems.ITEMS.getEntries().stream().filter(ingItem -> ingItem.getId().getPath().startsWith(materialType+"_")).findFirst();
             //TODO: Update Time and Exp
-            //TODO: Fix naming
-            optIngotItem.ifPresent(itemRegistryObject -> oreCook(pWriter, RecipeSerializer.SMELTING_RECIPE, List.of(item.get()), RecipeCategory.BUILDING_BLOCKS, itemRegistryObject.get(), 0.35f, 200, "smelting"));
+            optIngotItem.ifPresent(ingotItem -> oreCook(pWriter, RecipeSerializer.SMELTING_RECIPE, List.of(item.get()), RecipeCategory.BUILDING_BLOCKS, ingotItem.get(), 0.35f, 200, "smelting"));
         });
 
         RawOreItems.ITEMS.getEntries().forEach(item -> {
@@ -68,8 +67,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
             if(materialType.equals("salt") || materialType.equals("sulfur"))
                 return;
             Optional<RegistryObject<Item>> optIngotItem = IngotItems.ITEMS.getEntries().stream().filter(ingItem -> ingItem.getId().getPath().startsWith(materialType)).findFirst();
-            //TODO: Fix naming
-            optIngotItem.ifPresent(itemRegistryObject -> oreCook(pWriter, RecipeSerializer.SMELTING_RECIPE, List.of(item.get()), RecipeCategory.BUILDING_BLOCKS, itemRegistryObject.get(), 0.35f, 200, "smelting"));
+            optIngotItem.ifPresent(ingotItem -> oreCook(pWriter, RecipeSerializer.SMELTING_RECIPE, List.of(item.get()), RecipeCategory.BUILDING_BLOCKS, ingotItem.get(), 0.35f, 200, "smelting"));
         });
 
     }
