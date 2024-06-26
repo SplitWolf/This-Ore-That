@@ -37,41 +37,48 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
     }
 
     private void setMiningLevels() {
-        TagKey<Block> wood_tag = BlockTags.create(new ResourceLocation("forge",
-                "needs_wood_tool"));
-        //TODO: Check tags
-        this.tag(wood_tag).add(
-            OreBlocks.SALT_ORE.get(),
-            OreBlocks.DEEPSLATE_SALT_ORE.get(),
-            OreBlocks.SULFUR_ORE.get(),
-            OreBlocks.DEEPSLATE_SULFUR_ORE.get()
-        );
         this.tag(BlockTags.NEEDS_STONE_TOOL).add(
-                OreBlocks.TIN_ORE.get(),
-                OreBlocks.DEEPSLATE_TIN_ORE.get(),
                 OreBlocks.ALUMINIUM_ORE.get(),
                 OreBlocks.DEEPSLATE_ALUMINIUM_ORE.get(),
+                OreBlocks.LEAD_ORE.get(),
+                OreBlocks.DEEPSLATE_LEAD_ORE.get(),
+                OreBlocks.TIN_ORE.get(),
+                OreBlocks.DEEPSLATE_TIN_ORE.get(),
                 OreBlocks.ZINC_ORE.get(),
                 OreBlocks.DEEPSLATE_ZINC_ORE.get(),
-                OreBlocks.NICKEL_ORE.get(),
-                OreBlocks.DEEPSLATE_NICKEL_ORE.get(),
+                MetalBlocks.ALUMINIUM_BLOCK.get(),
+                MetalBlocks.BRASS_BLOCK.get(),
+                MetalBlocks.BRONZE_BLOCK.get(),
+                MetalBlocks.LEAD_BLOCK.get(),
+                MetalBlocks.SILICON_BLOCK.get(),
+                MetalBlocks.NICKEL_BLOCK.get(),
                 MetalBlocks.TIN_BLOCK.get(),
                 MetalBlocks.ZINC_BLOCK.get(),
-                MetalBlocks.SILICON_BLOCK.get()
+                RawOreBlocks.RAW_ALUMINUM_BLOCK.get(),
+                RawOreBlocks.RAW_LEAD_BLOCK.get(),
+                RawOreBlocks.RAW_TIN_BLOCK.get(),
+                RawOreBlocks.RAW_ZINC_BLOCK.get()
         );
         this.tag(BlockTags.NEEDS_IRON_TOOL).add(
+            OreBlocks.NICKEL_ORE.get(),
+            OreBlocks.DEEPSLATE_NICKEL_ORE.get(),
             OreBlocks.SILVER_ORE.get(),
             OreBlocks.DEEPSLATE_SILVER_ORE.get(),
-            OreBlocks.LEAD_ORE.get(),
-            OreBlocks.DEEPSLATE_LEAD_ORE.get(),
             OreBlocks.PLATINUM_ORE.get(),
             OreBlocks.DEEPSLATE_PLATINUM_ORE.get(),
             OreBlocks.URANIUM_ORE.get(),
             OreBlocks.DEEPSLATE_URANIUM_ORE.get(),
-            MetalBlocks.SILVER_BLOCK.get(),
-            MetalBlocks.LEAD_BLOCK.get(),
+            MetalBlocks.ELECTRUM_BLOCK.get(),
+            MetalBlocks.INVAR_BLOCK.get(),
+            MetalBlocks.NICKEL_BLOCK.get(),
             MetalBlocks.PLATINUM_BLOCK.get(),
-            MetalBlocks.URANIUM_BLOCK.get()
+            MetalBlocks.SILVER_BLOCK.get(),
+            MetalBlocks.STEEL_BLOCK.get(),
+            MetalBlocks.URANIUM_BLOCK.get(),
+            RawOreBlocks.RAW_NICKEL_BLOCK.get(),
+            RawOreBlocks.RAW_SILVER_BLOCK.get(),
+            RawOreBlocks.RAW_PLATINUM_BLOCK.get(),
+            RawOreBlocks.RAW_URANIUM_BLOCK.get()
         );
     }
 
