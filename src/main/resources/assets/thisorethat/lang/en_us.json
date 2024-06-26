@@ -10,7 +10,7 @@
   "block.thisorethat.aluminum_ore": "Aluminum Ore",
   "block.thisorethat.deepslate_aluminum_ore": "Deepslate Aluminum Ore",
   "item.thisorethat.raw_aluminum":  "Raw Aluminum",
-  "block.thisorethat.raw_aluminum_block":  "Raw Aluminum Block",
+  "block.thisorethat.raw_aluminum_block":  "Block of Raw Aluminum",
 
   "item.thisorethat.brass_dust": "Brass Dust",
   "item.thisorethat.brass_gear": "Brass Gear",
@@ -80,7 +80,7 @@
   "block.thisorethat.lead_ore": "Lead Ore",
   "block.thisorethat.deepslate_lead_ore": "Deepslate Lead Ore",
   "item.thisorethat.raw_lead":  "Raw Lead",
-  "block.thisorethat.raw_lead_block": "Raw Lead Block",
+  "block.thisorethat.raw_lead_block": "Block of Raw Lead",
 
   "item.thisorethat.netherite_dust": "Netherite Dust",
   "item.thisorethat.netherite_gear": "Netherite Gear",
@@ -96,7 +96,7 @@
   "block.thisorethat.nickel_ore": "Nickel Ore",
   "block.thisorethat.deepslate_nickel_ore": "Deepslate Nickel Ore",
   "item.thisorethat.raw_nickel":  "Raw Nickel",
-  "block.thisorethat.raw_nickel_block": "Raw Nickel Block",
+  "block.thisorethat.raw_nickel_block": "Block of Raw Nickel",
 
   "item.thisorethat.platinum_dust": "Platinum Dust",
   "item.thisorethat.platinum_gear": "Platinum Gear",
@@ -107,14 +107,14 @@
   "block.thisorethat.platinum_ore": "Platinum Ore",
   "block.thisorethat.deepslate_platinum_ore": "Deepslate Platinum Ore",
   "item.thisorethat.raw_platinum":  "Raw Platinum",
-  "block.thisorethat.raw_platinum_block": "Raw Platinum Block",
+  "block.thisorethat.raw_platinum_block": "Block of Raw Platinum",
 
   "item.thisorethat.silicon_ingot": "Silicon",
   "item.thisorethat.silicon_dust": "Silicon Dust",
   "item.thisorethat.silicon_gear": "Silicon Gear",
   "item.thisorethat.silicon_sheet": "Silicon Sheet",
   "item.thisorethat.silicon_nugget": "Silicon Nugget",
-  "block.thisorethat.silicon_block": "Silicon Block",
+  "block.thisorethat.silicon_block": "Block of Silicon",
 
 
   "item.thisorethat.quartz_dust": "Quartz Dust",
@@ -123,9 +123,9 @@
 
 
   "item.thisorethat.salt_dust": "Salt",
-  "item.thisorethat.raw_salt": "Raw Salt",
-  "block.thisorethat.raw_salt_block": "Raw Salt Block",
-  "block.thisorethat.salt_block": "Salt Block",
+  "item.thisorethat.raw_salt": "Rock Salt",
+  "block.thisorethat.raw_salt_block": "Block of Rock Salt",
+  "block.thisorethat.salt_block": "Block of Salt",
   "block.thisorethat.salt_ore": "Salt Ore",
   "block.thisorethat.deepslate_salt_ore": "Deepslate Salt Ore",
 
@@ -138,7 +138,7 @@
   "block.thisorethat.silver_ore": "Silver Ore",
   "block.thisorethat.deepslate_silver_ore": "Deepslate Silver Ore",
   "item.thisorethat.raw_silver":  "Raw Silver",
-  "block.thisorethat.raw_silver_block": "Raw Silver Block",
+  "block.thisorethat.raw_silver_block": "Block of Raw Silver",
 
   "item.thisorethat.steel_dust": "Steel Dust",
   "item.thisorethat.steel_gear": "Steel Gear",
@@ -149,8 +149,8 @@
 
   "item.thisorethat.sulfur_dust": "Sulfur",
   "item.thisorethat.raw_sulfur": "Raw Sulfur",
-  "block.thisorethat.raw_sulfur_block": "Raw Sulfur Block",
-  "block.thisorethat.sulfur_block": "Sulfur Block",
+  "block.thisorethat.raw_sulfur_block": "Block of Raw Sulfur",
+  "block.thisorethat.sulfur_block": "Block of Sulfur",
   "block.thisorethat.sulfur_ore": "Sulfur Ore",
   "block.thisorethat.deepslate_sulfur_ore": "Deepslate Sulfur Ore",
 
@@ -163,7 +163,7 @@
   "block.thisorethat.tin_ore": "Tin Ore",
   "block.thisorethat.deepslate_tin_ore": "Deepslate Tin Ore",
   "item.thisorethat.raw_tin":  "Raw Tin",
-  "block.thisorethat.raw_tin_block": "Raw Tin Block",
+  "block.thisorethat.raw_tin_block": "Block of Raw Tin",
 
   "item.thisorethat.uranium_dust": "Uranium Dust",
   "item.thisorethat.uranium_gear": "Uranium Gear",
@@ -174,7 +174,7 @@
   "block.thisorethat.uranium_ore": "Uranium Ore",
   "block.thisorethat.deepslate_uranium_ore": "Deepslate Uranium Ore",
   "item.thisorethat.raw_uranium":  "Raw Uranium",
-  "block.thisorethat.raw_uranium_block": "Raw Uranium Block",
+  "block.thisorethat.raw_uranium_block": "Block of Raw Uranium",
 
   "item.thisorethat.zinc_dust": "Zinc Dust",
   "item.thisorethat.zinc_gear": "Zinc Gear",
@@ -185,5 +185,5 @@
   "block.thisorethat.zinc_ore": "Zinc Ore",
   "block.thisorethat.deepslate_zinc_ore": "Deepslate Zinc Ore",
   "item.thisorethat.raw_zinc":  "Raw Zinc",
-  "block.thisorethat.raw_zinc_block": "Raw Zinc Block"
+  "block.thisorethat.raw_zinc_block": "Block of Raw Zinc"
 }
