@@ -57,19 +57,19 @@ public class ModItemTagGenerator extends ItemTagsProvider {
 
     private void tagDustItems(RegistryObject<Item> item) {
         TagKey<Item> tag = ItemTags.create(new ResourceLocation("forge",
-                "dusts/" + item.getId().getPath().replace("raw_","")));
+                "dusts/" + item.getId().getPath().replace("_dust","")));
         this.tag(tag).add(item.get());
     }
 
     private void tagGearItems(RegistryObject<Item> item) {
         TagKey<Item> tag = ItemTags.create(new ResourceLocation("forge",
-                "gear/" + item.getId().getPath().replace("raw_","")));
+                "gears/" + item.getId().getPath().replace("_gear","")));
         this.tag(tag).add(item.get());
     }
 
     private void tagSheetItems(RegistryObject<Item> item) {
         TagKey<Item> tag = ItemTags.create(new ResourceLocation("forge",
-                "plates/" + item.getId().getPath().replace("raw_","")));
+                "plates/" + item.getId().getPath().replace("_sheet","")));
         this.tag(tag).add(item.get());
     }
 
