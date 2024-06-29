@@ -4,6 +4,7 @@ import dev.splitwolf.thisorethat.SmeltingEnabledCondition;
 import dev.splitwolf.thisorethat.block.MetalBlocks;
 import dev.splitwolf.thisorethat.block.OreBlocks;
 import dev.splitwolf.thisorethat.ThisOreThat;
+import dev.splitwolf.thisorethat.block.RawOreBlocks;
 import dev.splitwolf.thisorethat.item.*;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
@@ -13,6 +14,7 @@ import net.minecraft.world.item.crafting.AbstractCookingRecipe;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.crafting.ConditionalRecipe;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 import net.minecraftforge.registries.RegistryObject;
@@ -27,11 +29,14 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         super(pOutput);
     }
 
+    //TODO: Salt and sulfur block recipes
+
     @Override
     protected void buildRecipes(@NotNull Consumer<FinishedRecipe> pWriter) {
         registerMetalBlockRecipes(pWriter);
         registerSmeltingRecipes(pWriter);
         registerNuggetRecipes(pWriter);
+        registerRawOreBlockRecipes(pWriter);
     }
     private void registerMetalBlockRecipes(Consumer<FinishedRecipe> pWriter) {
         MetalBlocks.BLOCKS.getEntries().forEach(block -> {
@@ -47,7 +52,16 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
             String materialType = nugget.getId().getPath().replace("_nugget","");
             Optional<RegistryObject<Item>> optPackedItem = IngotItems.ITEMS.getEntries().stream().filter(item -> item.getId().getPath().startsWith(materialType)).findFirst();
             optPackedItem.ifPresent(packedItem ->
-                    ninePackingUnpackingRecipes(RecipeCategory.BUILDING_BLOCKS, packedItem.get(), "from/nugget/", RecipeCategory.BUILDING_BLOCKS,nugget.get(),"from/ingot/", pWriter));
+            ninePackingUnpackingRecipes(RecipeCategory.BUILDING_BLOCKS, packedItem.get(), "from/nugget/", RecipeCategory.BUILDING_BLOCKS,nugget.get(),"from/ingot/", pWriter));
+        });
+    }
+
+    private void registerRawOreBlockRecipes(Consumer<FinishedRecipe> pWriter) {
+        RawOreItems.ITEMS.getEntries().forEach(rawOre -> {
+            String materialType = rawOre.getId().getPath().replace("raw_","");
+            Optional<RegistryObject<Block>> optPackedItem = RawOreBlocks.BLOCKS.getEntries().stream().filter(item -> item.getId().getPath().replace("raw_","").startsWith(materialType)).findFirst();
+            optPackedItem.ifPresent(packedItem ->
+                    ninePackingUnpackingRecipes(RecipeCategory.BUILDING_BLOCKS, packedItem.get(), "from/raw_ore/", RecipeCategory.BUILDING_BLOCKS,rawOre.get(),"from/raw_ore_block/", pWriter));
         });
     }
 
